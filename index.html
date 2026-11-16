@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TPlay - Worldwide Live TV, OTT & Movies App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        body {
+            background: radial-gradient(circle at top, #1b1145 0%, #09090f 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 920px;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .app-logo {
+            width: 105px;
+            height: 105px;
+            border-radius: 24px;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0, 198, 255, 0.35);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 18px;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(0, 198, 255, 0.15);
+            color: #00c6ff;
+            border: 1px solid #00c6ff;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 14px;
+            letter-spacing: 0.8px;
+        }
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            background: linear-gradient(90deg, #00c6ff, #ff9f1c, #ff2a85);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p.subtitle {
+            color: #c4c7d4;
+            font-size: 1.05rem;
+            max-width: 650px;
+            margin: 0 auto 25px auto;
+            line-height: 1.6;
+        }
+        .features-pills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 35px;
+        }
+        .pill {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 7px 14px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: #e2e4f0;
+        }
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 35px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 22px;
+            padding: 30px 25px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #00c6ff;
+        }
+        .icon {
+            font-size: 46px;
+            margin-bottom: 12px;
+        }
+        .card h2 {
+            font-size: 1.6rem;
+            margin-bottom: 6px;
+        }
+        .version {
+            font-size: 0.85rem;
+            color: #9498ab;
+            margin-bottom: 16px;
+        }
+        .card p {
+            color: #c4c7d4;
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .btn-mobile {
+            background: linear-gradient(135deg, #ff7b00, #ff9f1c);
+            color: #000000;
+        }
+        .btn-tv {
+            background: linear-gradient(135deg, #0072ff, #00c6ff);
+            color: #ffffff;
+        }
+        .community-box {
+            background: linear-gradient(135deg, rgba(0, 136, 204, 0.18), rgba(0, 198, 255, 0.08));
+            border: 1px solid rgba(0, 198, 255, 0.3);
+            border-radius: 18px;
+            padding: 24px;
+            margin-bottom: 30px;
+        }
+        .community-box h3 {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+        .community-box p {
+            color: #c4c7d4;
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+        .btn-telegram {
+            display: inline-block;
+            background: #0088cc;
+            color: #ffffff;
+            padding: 12px 26px;
+            border-radius: 10px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+        .guide-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+        .guide-box h3 {
+            color: #ff9f1c;
+            margin-bottom: 12px;
+            font-size: 1.15rem;
+        }
+        .guide-box ol {
+            padding-left: 20px;
+            color: #c4c7d4;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+        .footer {
+            margin-top: auto;
+            padding: 20px 0;
+            color: #8e92a4;
+            font-size: 0.92rem;
+            line-height: 1.7;
+        }
+        .footer a {
+            color: #00c6ff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- App Logo -->
+        <img src="https://github.com/abhipabhi472-ctrl/Tplay-app/releases/download/V1.6/TPLAY.LOGO.jpg" alt="TPlay Official Logo" class="app-logo">
+        <br>
+        <div class="badge">OFFICIAL DOWNLOAD PORTAL</div>
+        <h1>TPlay Entertainment</h1>
+        <p class="subtitle">Stream Worldwide Live TV Channels, Special OTT Content, and Blockbuster Movies in HD — Anytime, Anywhere on Mobile & Smart TV.</p>
+
+        <!-- Highlights -->
+        <div class="features-pills">
+            <span class="pill">🌍 Worldwide Live Channels</span>
+            <span class="pill">🎬 Latest Movies</span>
+            <span class="pill">🔥 Special OTT Content</span>
+            <span class="pill">⚡ Fast & Smooth Streaming</span>
+        </div>
+
+        <!-- Download Cards -->
+        <div class="cards-grid">
+            <!-- TPlay Mobile Card -->
+            <div class="card">
+                <div class="icon">📱</div>
+                <h2>TPlay Mobile</h2>
+                <div class="version">Version 3.8 • 12.2 MB • Android 7.0+</div>
+                <p>Watch global live channels, trending OTT shows, and movies on the go with multi-quality playback and smooth controls.</p>
+                <a href="https://github.com/abhipabhi472-ctrl/Tplay-app/releases/download/V1.6/T.Play.3.8.apk" class="btn btn-mobile">⬇ Download TPlay Mobile</a>
+            </div>
+
+            <!-- TPlay TV Card -->
+            <div class="card">
+                <div class="icon">📺</div>
+                <h2>TPlay TV</h2>
+                <div class="version">Version 1.6 • 11.2 MB • Android TV / Firestick</div>
+                <p>Built for big screens with full remote D-Pad support. Enjoy worldwide live TV and OTT entertainment right on your TV.</p>
+                <a href="https://github.com/abhipabhi472-ctrl/Tplay-app/releases/download/V1.6/T.Play.TV.1.6.apk" class="btn btn-tv">⬇ Download TPlay TV</a>
+            </div>
+        </div>
+
+        <!-- Telegram Channel Box -->
+        <div class="community-box">
+            <h3>📢 Join Our Official Telegram Channel</h3>
+            <p>Get instant app updates, new channel additions, and latest OTT release alerts.</p>
+            <a href="https://t.me/tplaybd" target="_blank" class="btn-telegram">Join @tplaybd on Telegram</a>
+        </div>
+
+        <!-- TV Installation Instructions -->
+        <div class="guide-box">
+            <h3>📺 How to Install TPlay TV on Android TV / Firestick:</h3>
+            <ol>
+                <li>Open Google Play Store / Appstore on your TV and install the <strong>Downloader</strong> app.</li>
+                <li>Open Downloader, enter this website URL, and click <strong>Go</strong>.</li>
+                <li>Click on <strong>Download TPlay TV</strong> button above.</li>
+                <li>Enable <em>"Install Unknown Apps"</em> if prompted and click <strong>Install</strong>.</li>
+            </ol>
+        </div>
+
+        <!-- Support Contacts -->
+        <div class="footer">
+            Need help or support? Contact our team on Telegram:<br>
+            <a href="https://t.me/tplayhelpnow" target="_blank">@tplayhelpnow</a> &nbsp;|&nbsp; 
+            <a href="https://t.me/tplaysupportindia" target="_blank">@tplaysupportindia</a>
+        </div>
+    </div>
+
+</body>
+</html>
